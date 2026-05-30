@@ -186,14 +186,6 @@ export default function App() {
     }
   }, [startRecording, stopRecording]);
 
-  // ── AI整形 ──
-    "\u4ee5\u4e0b\u306e\u55b6\u696d\u65e5\u5831\u30c6\u30ad\u30b9\u30c8\u3092\u3001",
-    "\u30d3\u30b8\u30cd\u30b9\u5411\u3051\u306b\u81ea\u7136\u3067\u7c21\u6f54\u306a\u65e5\u672c\u8a9e\u306b\u6574\u5f62\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
-    "\u5185\u5bb9\u30fb\u610f\u5473\u306f\u5909\u3048\u305a\u3001\u8aa4\u5b57\u8131\u5b57\u306e\u4fee\u6b63\u3068\u6587\u7ae0\u6574\u5f62\u306e\u307f\u884c\u3063\u3066\u304f\u3060\u3055\u3044\u3002",
-    "\u6574\u5f62\u5f8c\u306e\u30c6\u30ad\u30b9\u30c8\u306e\u307f\u8fd4\u3057\u3066\u304f\u3060\u3055\u3044\u3002\n\n"
-  ].join("");
-
-  };
 
   // ── CRUD (Firestore) ──
   const openNew = () => { setEditing(newReport()); setEditingDocId(null); setView("editor"); };
@@ -268,4 +260,14 @@ export default function App() {
         input,textarea,select{outline:none;}
         textarea{resize:vertical;}
         ::-webkit-scrollbar{width:5px;}
-        ::-webkit-scrollbar-thumb{background:#c8b9a
+        ::-webkit-scrollbar-thumb{background:#c8b9a0;border-radius:4px;}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .card{animation:fadeIn .25s ease;}
+        .report-card:hover{box-shadow:0 4px 20px rgba(139,90,43,.12);transform:translateY(-1px);}
+        .report-card{transition:all .2s;}
+      `}</style>
+
+      {notif && (
+        <div style={{ position:"fixed",top:20,right:20,zIndex:999,padding:"12px 20px",borderRadius:10,fontSize:13,fontWeight:500,background:noti
