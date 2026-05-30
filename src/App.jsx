@@ -123,8 +123,7 @@ export default function App() {
     try {
       const res = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ model: "claude-sonnet-4-20250514", max_tokens: 1000, messages: [{ role: "user", content: 以下の営業日報テキストを、ビジネス向けに自然で簡潔な日本語に整形してください。内容・意味は変えず、誤字脱字の修正と文章整形のみ行ってください。整形後のテキストのみ返してください。\n\n${text} }] })
-      });
+         body: JSON.stringify({ model: "claude-sonnet-4-20250514", max_tokens: 1000, messages: [{ role: "user", content: 以下の営業日報テキストを、ビジネス向けに自然で簡潔な日本語に整形してください。内容・意味は変えず、誤字脱字の修正と文章整形のみ行ってください。整形後のテキストのみ返してください。\n\n${text} '}] })
       const data = await res.json();
       setText(data.content?.[0]?.text || text); notify("AI整形しました ✨");
     } catch { notify("AI整形に失敗しました", "err"); }
