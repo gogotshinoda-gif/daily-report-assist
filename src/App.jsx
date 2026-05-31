@@ -269,5 +269,5 @@ export default function App() {
         .report-card{transition:all .2s;}
       `}</style>
 
-      {notif && (
-        <div style={{ position:"fixed",top:20,right:20,zIndex:999,padding:"12px 20px",borderRadius:10,fontSize:13,fontWeight:500,background:notif.type==="err"?"#c0392b":"#2d6a4f",color
+      {notif && 
+        <div style={{ position:"fixed",top:20,right:20,zIndex:999,padding:"12px 20px",borderRadius:10,fontSize:13,fontWeight:500,background:notif.type==="err"?"#c0392b":"#2d6a4f",color:"#fff",boxShadow:"0 4px 16px rgba(0,0,0,.2)",maxWidth:320 }}>{notif.msg}</div>}
